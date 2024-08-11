@@ -34,7 +34,7 @@ const registerUser = async (req, res, next) => {
         await sendEmail(
             email,
             "Email Verification",
-            `${firstName} Please Click on this link to verify your email: http://localhost:3000/v1/auth/verify-email/${token}`
+            `${firstName} Please Click on this link to verify your email: http://localhost:7000/v1/auth/verify-email/${token}`
         );
 
         res.status(201).send({
