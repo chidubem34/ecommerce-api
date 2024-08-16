@@ -13,7 +13,7 @@ const tp = nodemailer.createTransport({
 
 async function sendEmail(to, subject, body) {
     await tp.sendMail({
-        from: "ikpaprecious2@gmail.com",
+        from: process.env.EMAIL_USERNAME,
         to,
         subject,
         html: body,

@@ -7,7 +7,7 @@ const userTokenModel = require("../models/userToken");
 
 const registerUser = async (req, res, next) => {
     try {
-        const { firstName, lastName, email, password } = req.body;
+        const { firstName, lastName, email, password, role } = req.body;
 
         const existingUser = await usersModel.findOne({ email: email });
 
@@ -29,6 +29,7 @@ const registerUser = async (req, res, next) => {
             password: hashedPassword,
             authToken: token,
             authPurpose: "verify-email",
+            role: role
         });
 
         await sendEmail(
